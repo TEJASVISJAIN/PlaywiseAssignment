@@ -21,30 +21,30 @@ const EditDetailsScreen2 = props => {
       {/* Editable Info */}
       <View style={[styles.alignViewSplit, styles.alignItemsCenter]}>
         <View style={[styles.alignItemsCenter]}>
-          <Text style={[styles.font_bold, styles.font_20, styles.marginTop20]}>
+          <Text style={[styles.font_bold, styles.font_20, styles.marginTop20, styles.font_white]}>
               Name:
           </Text>
-          <Text style={[styles.font_bold, styles.font_20, styles.marginTop20]}>
+          <Text style={[styles.font_bold, styles.font_20, styles.marginTop20, styles.font_white]}>
               Username:
           </Text>
-          <Text style={[styles.font_bold, styles.font_20, styles.marginTop20]}>
+          <Text style={[styles.font_bold, styles.font_20, styles.marginTop20, styles.font_white]}>
               Bio:
           </Text>
         </View>
         {/* Inputs */}
         <View style={[styles.marginLeft30, styles.alignItemsCenter]}>
           <TextInput
-            style={[styles.editInput, styles.marginTop20]}
+            style={[styles.editInput, styles.marginTop20, styles.font_white]}
             placeholder={name}
             value = {name}
             onChangeText={(value) => setName(value)}/>
           <TextInput
-            style={[styles.editInput, styles.marginTop20]}
+            style={[styles.editInput, styles.marginTop20, styles.font_white]}
             placeholder={username}
             value = {username}
             onChangeText={(value) => setUsername(value)}/>
           <TextInput
-            style={[styles.editInput, styles.marginTop20]}
+            style={[styles.editInput, styles.marginTop20, styles.font_white]}
             placeholder={bio}
             value = {bio}
             onChangeText={(value) => setBio(value)} />

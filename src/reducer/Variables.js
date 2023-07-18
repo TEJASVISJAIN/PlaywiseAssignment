@@ -3,9 +3,9 @@ import { CHANGEVARIABLE } from '../actions/type';
 //store all redux variables here
 const INITIAL_STATE = {
   picture: '../../assets/profile.jpg',
-  name:'',
-  username:'',
-  bio:'',
+  name:'Tejasvi ',
+  username:'gogeta2514',
+  bio:'Genshin fan',
   posts:20,
   followers:25,
   following:25,

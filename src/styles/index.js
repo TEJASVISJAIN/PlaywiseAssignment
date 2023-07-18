@@ -8,22 +8,34 @@ import {
 const colors = {
   white: '#fff',
   black: '#000',
-  deSelected: '#C7D2E2',
+  deSelected: '#343434',
   grey: '#EDEEEE',
-  primary_background: '#8fcce7',
-  followButton: '#405DE6'
+  primary_background: '#4851EE',
+  followButton: '#6814C2'
 };
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%'
+        width: '100%',
+        backgroundColor: 'black'
       },
     profilePicture:{
-        height: moderateScale(125),
-        width: moderateScale(125),
-        borderRadius: moderateScale(75),
-        backgroundColor: 'cyan'
+        height: moderateScale(120),
+        width: moderateScale(120),
+        borderRadius: moderateScale(32),
+        backgroundColor: 'white',
+        
+    },
+    backgroundImage:{
+      width: '100%',
+      height: moderateScale(200),
+      resizeMode: 'cover' 
+    },
+    customName:{ 
+      marginLeft: 17, 
+      color:'white', 
+      marginTop: 50
     },
     flex_1:{
       flex: 1
@@ -67,20 +79,32 @@ export default StyleSheet.create({
       font_med:{
         fontWeight: "500",
       },
-
+      font_white:{
+        color: colors.white
+      },
+      font_black:{
+        color: colors.black
+      },
       //font sizes
       font_20:{
-        fontSize: 20
+        fontSize: moderateScale(20)
       },
       font_22:{
-        fontSize: 22
+        fontSize: moderateScale(22)
       },
       font_24:{
-        fontSize: 24
+        fontSize: moderateScale(24)
+      },
+      //padding
+      padding10:{
+        padding: moderateScale(10)
       },
       // margins
       marginLeft30:{
         marginLeft: horizontalScale(30)
+      },
+      marginRight10:{
+        marginRight: horizontalScale(10)
       },
       marginTop20:{
         marginTop: verticalScale(20),
@@ -90,6 +114,9 @@ export default StyleSheet.create({
       },
       marginTop100:{
         marginTop: verticalScale(100),
+      },
+      marginTop115:{
+        marginTop: verticalScale(115)
       },
 
     //   button
@@ -131,5 +158,10 @@ export default StyleSheet.create({
       },
       deSelected:{
         color: colors.deSelected
-      }
+      },
+      // icons
+      back:{
+        height: moderateScale(20),
+        width: moderateScale(20)
+      },
 });

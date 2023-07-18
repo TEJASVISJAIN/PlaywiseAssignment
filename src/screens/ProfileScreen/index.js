@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import styles from '../../styles'
 import { verticalScale } from '../../styles/mixins'
@@ -10,10 +10,10 @@ import { followCountInc } from '../../actions/actions'
 const Metric = ({number, metric}) =>{
   return(
       <View style={[styles.flex_1, styles.alignItemsCenter]}>
-          <Text style={[styles.font_bold, styles.font_20]}>
+          <Text style={[styles.font_bold, styles.font_20, styles.font_white]}>
               {number}
           </Text>
-          <Text style={[styles.font_med, styles.font_20]}>
+          <Text style={[styles.font_med, styles.font_20, styles.font_white]}>
               {metric}
           </Text>
       </View>
@@ -30,7 +30,7 @@ const index = props => {
       
       return(
         <TouchableOpacity 
-            style={[styles.primary_button, {marginTop: verticalScale(55)}]}
+            style={[styles.primary_button,styles.marginTop55]}
             onPress={e=>{
               setFollowers(followers+1);
               setAreFollowing(true)
@@ -62,23 +62,37 @@ const index = props => {
     }
     
   return (
-    <View style={styles.container}>
+    <View style={[styles.container]}>
         {/*  User details */}
-      <View style={[styles.alignItemsCenter, styles.marginTop100]}>
-        {/* Profile Picture */}
-        <View style={styles.profilePicture}>
-            <Image source={require('../../assets/profile.jpg')} style={styles.profilePicture}/>
+        <View style={[styles.alignViewSplit,styles.alignItemsCenter, styles.marginTop55, styles.padding10]}>
+          {/* Back button */}
+          <TouchableOpacity 
+            onPress={e=> navigation.goBack()}>
+            <Image source={require('../../assets/back.png')} style={[styles.back]}/>
+          </TouchableOpacity>
+          {/* Username */}
+          <Text style={[styles.font_med, styles.font_24,styles.font_white]}>
+            {props.username}
+          </Text>
+          {/*Edit button  */}
+          <TouchableOpacity 
+            style={[styles.marginRight10]}
+            onPress={e=> navigation.navigate('Edit2')}>
+            <Image source={require('../../assets/edit.png')} style={[styles.back]}/>
+          </TouchableOpacity>
         </View>
-        {/* Username */}
-        <Text style={[styles.font_bold, styles.font_24]}>
-            @{props.username}
-        </Text>
+
+      <View style={[styles.alignItemsCenter]}>
+        {/* Profile Picture and Background image*/}
+        <ImageBackground source={require('../../assets/bg.jpg')} style={[styles.alignItemsCenter,styles.backgroundImage]}>
+            <Image source={require('../../assets/profile.jpg')} style={[styles.profilePicture, styles.marginTop115 ]}/>            
+        </ImageBackground>
         {/* User's name */}
-        <Text style={[styles.font_med, styles.font_22]}>
-            {props.name}
+        <Text style={[styles.font_bold, styles.font_22,styles.customName]}>
+          {props.name}
         </Text>
         {/* Bio */}
-        <Text numberOfLines={3} style={styles.font_20}>
+        <Text numberOfLines={3} style={[styles.font_20, styles.font_white]}>
             {props.bio}
         </Text>
       </View>
@@ -90,17 +104,7 @@ const index = props => {
         <Metric number={props.following} metric={"following"} />
       </View>
 
-      {/* Action Buttons */}
-      <TouchableOpacity 
-        style={[styles.primary_button, styles.marginTop55]}
-        onPress={e=> navigation.navigate('Edit2')}
-        >
-        <View>
-          <Text style={[styles.primary_button_text]}>Edit</Text>
-        </View>
-      </TouchableOpacity>
-
-      
+      {/* Action Buttons */}   
       {!areFollowing? <FollowComponent  /> : <UnFollowComponent />}
    
 
